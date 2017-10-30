@@ -12,4 +12,10 @@ public class ColorfulThingTest {
         ColorfulThing.Color actual = cup.getColor();
         Assert.assertEquals(expected, actual);
     }
+
+    @Test
+    public void getRandomColorfulThingTest() {
+        ColorfulThing newThing = ColorfulThing.getRandomColorfulThing();
+        Assert.assertTrue(newThing instanceof ColorfulThing);
+    }
 }
