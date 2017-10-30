@@ -28,6 +28,64 @@ public class ThingContainer {
         }
     }
 
+    public ColorfulThing pop() {
+        ColorfulThing thingToRemove = null;
+        if(nextIndexToAdd > 0) {
+            thingToRemove = colorfulThings[nextIndexToAdd - 1];
+            colorfulThings[nextIndexToAdd - 1] = null;
+            nextIndexToAdd--;
+        }
+        return thingToRemove;
+    }
+
+    public ColorfulThing remove(ColorfulThing.Color color) {
+        ColorfulThing thingToRemove = null;
+        int indexToRemove = 0;
+        for(int i = 0; i < colorfulThings.length; i++) {
+            if(colorfulThings[i] != null) {
+                if(colorfulThings[i].getColor().equals(color)) {
+                    thingToRemove = colorfulThings[i];
+                    indexToRemove = i;
+                    i = colorfulThings.length;
+                }
+            }
+        }
+
+        if(thingToRemove != null) {
+            shiftAfterRemoved(indexToRemove);
+        }
+
+        return thingToRemove;
+    }
+
+    public ColorfulThing remove(ColorfulThing thing) {
+        ColorfulThing thingToRemove = null;
+        int indexToRemove = 0;
+        for(int i = 0; i < colorfulThings.length; i++) {
+            if(colorfulThings[i] != null) {
+                if(colorfulThings[i].equals(thing)) {
+                    thingToRemove = colorfulThings[i];
+                    indexToRemove = i;
+                    i = colorfulThings.length;
+                }
+            }
+        }
+
+        if(thingToRemove != null) {
+            shiftAfterRemoved(indexToRemove);
+        }
+
+        return thingToRemove;
+    }
+
+    private void shiftAfterRemoved(int indexToRemove) {
+        for(int i=indexToRemove+1; i < colorfulThings.length; i++) {
+            colorfulThings[i - 1] = colorfulThings[i];
+        }
+        colorfulThings[colorfulThings.length - 1] = null;
+        nextIndexToAdd--;
+    }
+
     public ColorfulThing[] getColorfulThings() {
         return colorfulThings;
     }
