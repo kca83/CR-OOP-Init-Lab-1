@@ -7,9 +7,9 @@ public class ColorfulThingTest {
 
     @Test
     public void getColorTest() {
-        ColorfulThing cup = new ColorfulThing("blue");
-        String expected = "blue";
-        String actual = cup.getColor();
+        ColorfulThing cup = new ColorfulThing(ColorfulThing.Color.BLUE);
+        ColorfulThing.Color expected = ColorfulThing.Color.BLUE;
+        ColorfulThing.Color actual = cup.getColor();
         Assert.assertEquals(expected, actual);
     }
 }
