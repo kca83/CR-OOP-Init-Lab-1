@@ -10,6 +10,10 @@ public class ThingContainer {
         colorfulThings = new ColorfulThing[numThings];
     }
 
+    public ThingContainer(ColorfulThing[] things) {
+        colorfulThings = things;
+    }
+
     public void add(ColorfulThing colorfulThing) {
         if(nextIndexToAdd < colorfulThings.length) {
             colorfulThings[nextIndexToAdd] = colorfulThing;

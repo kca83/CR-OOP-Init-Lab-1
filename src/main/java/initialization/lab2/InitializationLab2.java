@@ -45,6 +45,14 @@ public class InitializationLab2 {
         mySpecialThings.pop();
         mySpecialThings.pop();
         System.out.println(mySpecialThings.pop());
+        System.out.println();
+
+        ColorfulThing[] rainbowThings = {new ColorfulThing(ColorfulThing.Color.RED),
+                new ColorfulThing(ColorfulThing.Color.ORANGE), new ColorfulThing(ColorfulThing.Color.YELLOW),
+                new ColorfulThing(ColorfulThing.Color.GREEN), new ColorfulThing(ColorfulThing.Color.BLUE),
+                new ColorfulThing(ColorfulThing.Color.PURPLE)};
+        ThingContainer allMyThings = new ThingContainer(rainbowThings);
+        allMyThings.printThings();
 
     }
 }
